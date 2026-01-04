@@ -1,0 +1,68 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #E8F4F8;
+    color: #1A1A1A;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl shadow-sm p-6 border hover:shadow-md transition-shadow;
+    background-color: #FFFFFF;
+    border-color: #90CAF9;
+  }
+  
+  .card-elevated {
+    @apply rounded-2xl shadow-lg p-8 border;
+    background-color: #FFFFFF;
+    border-color: #90CAF9;
+  }
+  
+  .btn-primary {
+    background-color: #1976D2;
+    color: white;
+    @apply font-medium py-3 px-6 rounded-full transition-all shadow-sm hover:shadow-md;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1565C0;
+  }
+  
+  .btn-secondary {
+    background-color: white;
+    color: #1976D2;
+    border: 2px solid #1976D2;
+    @apply font-medium py-3 px-6 rounded-full transition-all;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #BBDEFB;
+  }
+  
+  .btn-ghost {
+    color: #5A5A5A;
+    @apply font-medium py-2 px-4 rounded-full transition-colors;
+  }
+  
+  .btn-ghost:hover {
+    color: #1976D2;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-4;
+    color: #1A1A1A;
+  }
+  
+  .section-subtitle {
+    @apply text-lg;
+    color: #5A5A5A;
+  }
+}
+
