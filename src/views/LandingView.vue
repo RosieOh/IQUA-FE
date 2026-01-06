@@ -1,12 +1,12 @@
 <template>
   <div class="min-h-screen bg-amore-cream">
     <!-- Hero Section -->
-    <section class="relative overflow-hidden bg-gradient-to-br from-white via-amore-cream to-amore-rose">
+    <section class="relative overflow-hidden bg-gradient-to-br from-white via-amore-cream to-amore-rose gradient-animated">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <!-- Left: Content -->
-          <div>
-            <div class="inline-flex items-center space-x-2 px-4 py-2 bg-amore-rose rounded-full mb-6">
+          <div data-aos="fade-right" data-aos-duration="800">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 bg-amore-rose rounded-full mb-6 animate-fade-in-up">
               <svg class="w-5 h-5 text-amore-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
@@ -53,8 +53,8 @@
           </div>
           
           <!-- Right: Visual -->
-          <div class="relative">
-            <div class="card-elevated p-8 bg-white/90 backdrop-blur-sm">
+          <div class="relative" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+            <div class="card-elevated p-8 bg-white/90 backdrop-blur-sm animate-float">
               <div class="text-center mb-6">
                 <div class="inline-block relative">
                   <svg class="transform -rotate-90 w-48 h-48 mx-auto">
@@ -112,19 +112,27 @@
       
       <!-- Decorative Elements -->
       <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div class="absolute top-20 left-10 w-96 h-96 bg-amore-rose opacity-20 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-amore-secondary opacity-15 rounded-full blur-3xl"></div>
+        <div class="absolute top-20 left-10 w-96 h-96 bg-amore-rose opacity-20 rounded-full blur-3xl animate-float" style="animation-delay: 0s;"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-amore-secondary opacity-15 rounded-full blur-3xl animate-float" style="animation-delay: 3s;"></div>
       </div>
     </section>
 
     <!-- Performance Metrics -->
-    <section class="py-16 bg-gradient-to-br from-amore-primary via-amore-secondary to-amore-accent">
+    <section class="py-16 bg-gradient-to-br from-amore-primary via-amore-secondary to-amore-accent gradient-animated">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <PerformanceMetric value="1,247+" label="분석된 인플루언서" />
-          <PerformanceMetric value="342" label="추천 인플루언서" />
-          <PerformanceMetric value="86%" label="평균 Trust Score" />
-          <PerformanceMetric value="15개" label="지원 국가" />
+          <div data-aos="fade-up" data-aos-delay="0">
+            <PerformanceMetric value="1,247+" label="분석된 인플루언서" />
+          </div>
+          <div data-aos="fade-up" data-aos-delay="100">
+            <PerformanceMetric value="342" label="추천 인플루언서" />
+          </div>
+          <div data-aos="fade-up" data-aos-delay="200">
+            <PerformanceMetric value="86%" label="평균 Trust Score" />
+          </div>
+          <div data-aos="fade-up" data-aos-delay="300">
+            <PerformanceMetric value="15개" label="지원 국가" />
+          </div>
         </div>
       </div>
     </section>
@@ -132,7 +140,7 @@
     <!-- Features Section -->
     <section id="features" class="py-24 bg-gradient-to-b from-white via-amore-rose to-amore-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-aos="fade-up">
           <h2 class="section-title">왜 아모레퍼시픽 마케팅 팀을 위한 솔루션인가</h2>
           <p class="section-subtitle max-w-3xl mx-auto">
             데이터 기반 의사결정으로 마케팅 ROI를 극대화하고,<br/>
@@ -141,16 +149,19 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <FeatureCard
-            v-for="feature in features"
+          <div
+            v-for="(feature, index) in features"
             :key="feature.title"
-            :feature="feature"
-          />
+            data-aos="fade-up"
+            :data-aos-delay="index * 100"
+          >
+            <FeatureCard :feature="feature" />
+          </div>
         </div>
 
         <!-- Value Propositions -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-          <div class="card-elevated text-center">
+          <div class="card-elevated text-center" data-aos="zoom-in" data-aos-delay="0">
             <div class="w-16 h-16 bg-amore-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <svg class="w-8 h-8 text-amore-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -159,7 +170,7 @@
             <h3 class="text-xl font-bold text-amore-text mb-2">마케팅 효율 향상</h3>
             <p class="text-amore-textLight">인플루언서 선정 시간을 70% 단축하고, 전환율이 높은 파트너를 우선적으로 발굴합니다.</p>
           </div>
-          <div class="card-elevated text-center">
+          <div class="card-elevated text-center" data-aos="zoom-in" data-aos-delay="100">
             <div class="w-16 h-16 bg-amore-success/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <svg class="w-8 h-8 text-amore-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -168,7 +179,7 @@
             <h3 class="text-xl font-bold text-amore-text mb-2">리스크 최소화</h3>
             <p class="text-amore-textLight">봇 계정, 허수 계정, 부정 행위를 사전에 탐지하여 브랜드 평판을 보호합니다.</p>
           </div>
-          <div class="card-elevated text-center">
+          <div class="card-elevated text-center" data-aos="zoom-in" data-aos-delay="200">
             <div class="w-16 h-16 bg-amore-warning/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <svg class="w-8 h-8 text-amore-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -184,20 +195,25 @@
     <!-- How It Works -->
     <section class="py-24 bg-gradient-to-br from-white via-amore-rose to-amore-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-aos="fade-up">
           <h2 class="section-title">작동 방식</h2>
           <p class="section-subtitle">간단한 4단계로 인플루언서 분석을 시작하세요</p>
         </div>
         
         <div class="max-w-4xl mx-auto space-y-8">
-          <WorkflowStep
+          <div
             v-for="(step, index) in workflowSteps"
             :key="index"
-            :step="index + 1"
-            :title="step.title"
-            :description="step.description"
-            :is-last="index === workflowSteps.length - 1"
-          />
+            data-aos="fade-right"
+            :data-aos-delay="index * 150"
+          >
+            <WorkflowStep
+              :step="index + 1"
+              :title="step.title"
+              :description="step.description"
+              :is-last="index === workflowSteps.length - 1"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -206,7 +222,7 @@
     <section class="py-24 bg-gradient-to-br from-amore-cream via-amore-rose to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <div data-aos="fade-right">
             <h2 class="section-title">
               Influencer Trust Score
             </h2>
@@ -214,13 +230,21 @@
               4대 핵심 지표를 기반으로 0~100점의 Trust Score를 자동 계산합니다.
             </p>
             <div class="space-y-5">
-              <ScoreIndicator label="Engagement Quality" score="92" />
-              <ScoreIndicator label="Comment Quality" score="85" />
-              <ScoreIndicator label="Content Originality" score="78" />
-              <ScoreIndicator label="Brand Fit" score="88" />
+              <div data-aos="fade-up" data-aos-delay="0">
+                <ScoreIndicator label="Engagement Quality" score="92" />
+              </div>
+              <div data-aos="fade-up" data-aos-delay="100">
+                <ScoreIndicator label="Comment Quality" score="85" />
+              </div>
+              <div data-aos="fade-up" data-aos-delay="200">
+                <ScoreIndicator label="Content Originality" score="78" />
+              </div>
+              <div data-aos="fade-up" data-aos-delay="300">
+                <ScoreIndicator label="Brand Fit" score="88" />
+              </div>
             </div>
           </div>
-          <div class="card-elevated">
+          <div class="card-elevated" data-aos="fade-left" data-aos-delay="200">
             <div class="text-center">
               <div class="inline-block relative">
                 <svg class="transform -rotate-90 w-64 h-64">
@@ -261,17 +285,20 @@
     <!-- Country Comparison Section -->
     <section class="py-24 bg-gradient-to-b from-amore-cream via-amore-rose to-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-20">
+        <div class="text-center mb-20" data-aos="fade-up">
           <h2 class="section-title">국가별 맞춤 평가</h2>
           <p class="section-subtitle">각 국가의 SNS 소비 문화에 맞춘 자동 가중치 조정</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <CountryCard
-            v-for="country in countries"
+          <div
+            v-for="(country, index) in countries"
             :key="country.code"
-            :country="country"
-          />
+            data-aos="zoom-in"
+            :data-aos-delay="index * 150"
+          >
+            <CountryCard :country="country" />
+          </div>
         </div>
       </div>
     </section>
@@ -279,13 +306,13 @@
     <!-- Use Cases Section -->
     <section class="py-24 bg-gradient-to-b from-white via-amore-rose to-amore-cream">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16" data-aos="fade-up">
           <h2 class="section-title">실제 활용 사례</h2>
           <p class="section-subtitle">아모레퍼시픽 마케팅 팀이 어떻게 활용하는지 확인하세요</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="card-elevated">
+          <div class="card-elevated" data-aos="fade-right" data-aos-delay="0">
             <div class="flex items-start space-x-4">
               <div class="flex-shrink-0 w-12 h-12 bg-amore-primary/10 rounded-xl flex items-center justify-center">
                 <svg class="w-6 h-6 text-amore-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -306,7 +333,7 @@
             </div>
           </div>
 
-          <div class="card-elevated">
+          <div class="card-elevated" data-aos="fade-left" data-aos-delay="100">
             <div class="flex items-start space-x-4">
               <div class="flex-shrink-0 w-12 h-12 bg-amore-success/10 rounded-xl flex items-center justify-center">
                 <svg class="w-6 h-6 text-amore-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -331,11 +358,11 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-24 bg-gradient-to-br from-amore-primary via-amore-secondary to-amore-accent relative overflow-hidden">
+    <section class="py-24 bg-gradient-to-br from-amore-primary via-amore-secondary to-amore-accent relative overflow-hidden gradient-animated">
       <div class="absolute inset-0 opacity-10">
         <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
       </div>
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="zoom-in" data-aos-duration="1000">
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
           지금 바로 시작하세요
         </h2>
@@ -344,10 +371,10 @@
           마케팅 ROI를 극대화하고 브랜드 성장을 가속화하세요
         </p>
         <div class="flex flex-wrap justify-center gap-4">
-          <router-link to="/dashboard" class="inline-block bg-white text-amore-primary font-semibold text-lg px-10 py-4 rounded-full hover:bg-amore-secondary transition-all shadow-lg hover:shadow-xl">
+          <router-link to="/dashboard" class="inline-block bg-white text-amore-primary font-semibold text-lg px-10 py-4 rounded-full hover:bg-amore-secondary transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
             대시보드 시작하기 →
           </router-link>
-          <router-link to="/influencers" class="inline-block bg-white/10 backdrop-blur-sm text-white border-2 border-white font-semibold text-lg px-10 py-4 rounded-full hover:bg-white/20 transition-all">
+          <router-link to="/influencers" class="inline-block bg-white/10 backdrop-blur-sm text-white border-2 border-white font-semibold text-lg px-10 py-4 rounded-full hover:bg-white/20 transition-all transform hover:scale-105">
             인플루언서 분석하기
           </router-link>
         </div>
