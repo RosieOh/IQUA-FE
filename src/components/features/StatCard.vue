@@ -1,12 +1,12 @@
 <template>
-  <div class="card-elevated">
+  <div class="card-elevated group cursor-pointer">
     <div class="flex items-center justify-between mb-4">
-      <div class="p-3 rounded-xl" :class="iconBgClass">
-        <svg class="w-6 h-6" :class="iconColorClass" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="p-3 rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3" :class="iconBgClass">
+        <svg class="w-6 h-6 transition-transform duration-300 group-hover:scale-110" :class="iconColorClass" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       </div>
-      <span class="text-sm font-medium" :class="trendClass">
+      <span class="text-sm font-medium transition-all duration-300 group-hover:scale-110" :class="trendClass">
         <span v-if="trend > 0">↑</span>
         <span v-else-if="trend < 0">↓</span>
         <span v-else>→</span>
@@ -14,9 +14,9 @@
       </span>
     </div>
     <div>
-      <p class="text-sm text-amore-textLight mb-1">{{ label }}</p>
-      <p class="text-3xl font-bold" :class="valueColorClass">{{ formattedValue }}</p>
-      <p v-if="subtitle" class="text-xs text-amore-textLight mt-2">{{ subtitle }}</p>
+      <p class="text-sm text-amore-textLight mb-1 transition-colors duration-300 group-hover:text-amore-text">{{ label }}</p>
+      <p class="text-3xl font-bold transition-all duration-300 group-hover:scale-105" :class="valueColorClass">{{ formattedValue }}</p>
+      <p v-if="subtitle" class="text-xs text-amore-textLight mt-2 transition-colors duration-300 group-hover:text-amore-text">{{ subtitle }}</p>
     </div>
   </div>
 </template>
