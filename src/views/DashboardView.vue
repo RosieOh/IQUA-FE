@@ -1,50 +1,58 @@
 <template>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
     <!-- 헤더 -->
-    <div class="mb-8">
+    <div class="mb-8" data-aos="fade-down">
       <h1 class="text-4xl font-bold text-amore-text mb-2">마케팅 대시보드</h1>
       <p class="text-amore-textLight">인플루언서 분석 현황 및 통계 요약</p>
     </div>
 
     <!-- 통계 카드 -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-      <StatCard
-        label="총 분석 인플루언서"
-        :value="stats.total"
-        subtitle="전체 분석 완료"
-        :trend="5.2"
-        type="primary"
-      />
-      <StatCard
-        label="추천 인플루언서"
-        :value="stats.recommended"
-        subtitle="80점 이상"
-        :trend="12.5"
-        type="success"
-      />
-      <StatCard
-        label="조건부 검토"
-        :value="stats.consider"
-        subtitle="60-79점"
-        :trend="-3.1"
-        type="warning"
-      />
-      <StatCard
-        label="제외 대상"
-        :value="stats.excluded"
-        subtitle="59점 이하"
-        :trend="2.3"
-        type="danger"
-      />
+      <div data-aos="fade-up" data-aos-delay="0">
+        <StatCard
+          label="총 분석 인플루언서"
+          :value="stats.total"
+          subtitle="전체 분석 완료"
+          :trend="5.2"
+          type="primary"
+        />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <StatCard
+          label="추천 인플루언서"
+          :value="stats.recommended"
+          subtitle="80점 이상"
+          :trend="12.5"
+          type="success"
+        />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <StatCard
+          label="조건부 검토"
+          :value="stats.consider"
+          subtitle="60-79점"
+          :trend="-3.1"
+          type="warning"
+        />
+      </div>
+      <div data-aos="fade-up" data-aos-delay="300">
+        <StatCard
+          label="제외 대상"
+          :value="stats.excluded"
+          subtitle="59점 이하"
+          :trend="2.3"
+          type="danger"
+        />
+      </div>
     </div>
 
     <!-- 차트 및 최근 분석 -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
       <!-- 점수 분포 차트 -->
-      <div class="lg:col-span-2 card-elevated">
+      <div class="lg:col-span-2 card-elevated" data-aos="fade-right" data-aos-delay="200">
         <div class="flex items-center justify-between mb-6">
           <h2 class="text-xl font-bold text-amore-text">Trust Score 분포</h2>
-          <select class="text-sm border border-amore-border rounded-full px-4 py-2">
+          <select class="text-sm border border-amore-border rounded-full px-4 py-2 transition-all hover:border-amore-primary">
             <option>최근 30일</option>
             <option>최근 7일</option>
             <option>전체</option>
@@ -54,17 +62,17 @@
       </div>
 
       <!-- 국가별 통계 -->
-      <div class="card-elevated">
+      <div class="card-elevated" data-aos="fade-left" data-aos-delay="300">
         <h2 class="text-xl font-bold text-amore-text mb-6">국가별 분석 현황</h2>
         <CountryStatsChart :data="countryStats" />
       </div>
     </div>
 
     <!-- 최근 분석 결과 -->
-    <div class="card-elevated mb-8">
+    <div class="card-elevated mb-8" data-aos="fade-up" data-aos-delay="400">
       <div class="flex items-center justify-between mb-6">
         <h2 class="text-xl font-bold text-amore-text">최근 분석 결과</h2>
-        <router-link to="/influencers" class="text-sm text-amore-primary hover:underline font-medium">
+        <router-link to="/influencers" class="text-sm text-amore-primary hover:underline font-medium transition-all hover:scale-105">
           전체 보기 →
         </router-link>
       </div>
